@@ -44,6 +44,6 @@ class Practitioner_typeDAO extends DAO
         $type->setCode($row['practitioner_type_code']);
         $type->setName($row['practitioner_type_name']);
         $type->setPlace($row['practitioner_type_place']);
-        return $type;
+        return $type; 
     }
 }
