@@ -28,5 +28,5 @@ $app['dao.practitioner'] = $app->share(function ($app){
 });
 
 $app['dao.practitioner_type'] = $app ->share(function  ($app){
-    return new GSB\DAO\Practitioner_typeDAO($app['db']);
+    return new GSB\DAO\Practitioner_typeDAO($app['db']); 
     });
