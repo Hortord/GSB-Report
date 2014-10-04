@@ -6,9 +6,9 @@ use GSB\Domain\Practitioner;
 
 class PractitionerDAO extends DAO
 {
-    private $practitioner_typeDAO;
-    public function setPractitioner_typeDAO($practitioner_typeDAO) {
-        $this->practitioner_typeDAO = $practitioner_typeDAO;
+    private $practitionerTypeDAO;
+    public function setPractitionerTypeDAO($practitionerTypeDAO) {
+        $this->practitionerTypeDAO = $practitionerTypeDAO;
     }
     public function findAll() {
         $sql = "select * from practitioner order by practitioner_name";
@@ -45,7 +45,7 @@ class PractitionerDAO extends DAO
     }
     protected function buildDomainObject($row) {
         $practitionerTypeId = $row['practitioner_type_id'];
-        $type = $this->practitioner_typeDAO->find($practitionerTypeId);
+        $type = $this->practitionerTypeDAO->find($practitionerTypeId);
 
         $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);
