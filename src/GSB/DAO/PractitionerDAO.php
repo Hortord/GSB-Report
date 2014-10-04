@@ -23,13 +23,11 @@ class PractitionerDAO extends DAO
         return $practitioners;
     }
     public function findAllByType($practitioner_id) {
-        $sql = "select * from practitioner where practitioner_id=? order by practitioner_name";
+        $sql = "select * from practitioner where practitioner_type_id=? order by practitioner_name";
         $result = $this->getDb()->fetchAll($sql, array($practitioner_id));
-        
-        // Convert query result to an array of domain objects
         $practitioners = array();
         foreach ($result as $row) {
-            $practitioner_id = $row['practitioner_type_id'];
+            $practitioner_id = $row['practitioner_id'];
             $practitioners[$practitioner_id] = $this->buildDomainObject($row);
         }
         return $practitioners;
