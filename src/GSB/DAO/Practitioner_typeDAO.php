@@ -2,7 +2,7 @@
 
 namespace GSB\DAO;
 
-use GSB\Domain\Practitioner_typeDAO;
+use GSB\Domain\Practitioner_type;
 
 class Practitioner_typeDAO extends DAO
 {

@@ -22,11 +22,13 @@ $app['dao.drug'] = $app->share(function ($app) {
     return $drugDAO;
 });
 
+$app['dao.practitioner_type'] = $app->share(function  ($app){
+    return new GSB\DAO\Practitioner_type($app['db']);
+}); 
+    
 $app['dao.practitioner'] = $app->share(function ($app){
     $practitionerDAO = new GSB\DAO\PractitionerDAO($app['db']);
     $practitionerDAO ->setPractitioner_typeDAO($app['dao.practitioner_type']);
-});
+    return $practitionerDAO;
+}); 
 
-$app['dao.practitioner_type'] = $app ->share(function  ($app){
-    return new GSB\DAO\Practitioner_typeDAO($app['db']);
-    });
