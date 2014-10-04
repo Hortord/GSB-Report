@@ -18,7 +18,8 @@
             {% for practitioner in practitioners %}
                 <tr>
                     <td><a href="/practitioners/{{ practitioner.id }}">{{ practitioner.name }}</a></td>
-                    <td>{{ practitioner.type.name }}</td>
+                    <td>{{practitioner.first_name}}</td>
+                    <td>{{ practitioner.practitioner_type.name }}</td>
                 </tr>
             {% endfor %}
         </table>

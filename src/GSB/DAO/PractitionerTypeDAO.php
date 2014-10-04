@@ -2,9 +2,9 @@
 
 namespace GSB\DAO;
 
-use GSB\Domain\Practitioner_type;
+use GSB\Domain\PractitionerType;
 
-class Practitioner_typeDAO extends DAO
+class PractitionerTypeDAO extends DAO
 {
     
     public function findAll() {
@@ -20,13 +20,7 @@ class Practitioner_typeDAO extends DAO
         return $Practitioner_types;
     }
 
-    /**
-     * Returns the family matching the given id.
-     *
-     * @param integer $id The family id.
-     *
-     * @return \GSB\Domain\Family|throws an exception if no family is found.
-     */
+    
     public function find($id) {
         $sql = "select * from practitioner_type where practitioner_type_id=?";
         $row = $this->getDb()->fetchAssoc($sql, array($id));
@@ -39,9 +33,9 @@ class Practitioner_typeDAO extends DAO
 
     
     protected function buildDomainObject($row) {
-        $type = new Practitioner_type();
+        $type = new PractitionerType();
         $type->setId($row['practitioner_type_id']);
-        $type->setCode($row['practitioner_type_code']);
+        
         $type->setName($row['practitioner_type_name']);
         $type->setPlace($row['practitioner_type_place']);
         return $type; 

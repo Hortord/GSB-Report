@@ -36,7 +36,7 @@ $app->post('/drugs/results/', function(Request $request) use ($app) {
 // list of all practitioner
 $app->get('/practitioners/', function() use ($app) {
     $practitioners = $app['dao.practitioner']->findAll();
-    return $app['twig']->render('practioners.html.twig', array('practitioner' => $practitioners));
+    return $app['twig']->render('practitioners.html.twig', array('practitioners' => $practitioners));
 });
 
 //Details for a practitioner 

@@ -17,7 +17,7 @@ class PractitionerDAO extends DAO
         // Converts query result to an array of domain objects
         $practitioners = array();
         foreach ($result as $row) {
-            $practitioner_id = $row['$practitioner_id'];
+            $practitioner_id = $row['practitioner_id'];
             $practitioners[$practitioner_id] = $this->buildDomainObject($row);
         }
         return $practitioners;
@@ -29,7 +29,7 @@ class PractitionerDAO extends DAO
         // Convert query result to an array of domain objects
         $practitioners = array();
         foreach ($result as $row) {
-            $practitioner_id = $row['$practitioner_id'];
+            $practitioner_id = $row['practitioner_type_id'];
             $practitioners[$practitioner_id] = $this->buildDomainObject($row);
         }
         return $practitioners;
@@ -44,12 +44,12 @@ class PractitionerDAO extends DAO
             throw new \Exception("No practitioner found for id " . $id);
     }
     protected function buildDomainObject($row) {
-        $practitioner_id = $row['practitioner_id'];
-        $type = $this->practitioner_typeDAO->find($type_Id);
+        $practitionerTypeId = $row['practitioner_type_id'];
+        $type = $this->practitioner_typeDAO->find($practitionerTypeId);
 
-        $practitioner = new Drug();
+        $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);
-        $practitioner->setType($type);
+        $practitioner->setTypeID($type);
         $practitioner->setName($row['practitioner_name']);
         $practitioner->setFirst_name($row['practitioner_first_name']);
         $practitioner->setAddress($row['practitioner_address']);
